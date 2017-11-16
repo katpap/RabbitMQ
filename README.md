@@ -10,7 +10,7 @@ A direct exchange is used.
 
 
 #PhoneConsumer
-Consumer that counts the phone messages received.
+It counts the phone messages received.
 A RestController(PhoneController) is used to allow user retrieve the grouped data.
 
 Unit tests are included.
