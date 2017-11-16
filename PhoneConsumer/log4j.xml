@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+   <!-- Appenders -->
+   <appender name="console" class="org.apache.log4j.ConsoleAppender">
+      <param name="Target" value="System.out" />
+     <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%-5p: %c - %m%n" />
+      </layout>
+   </appender>
+
+   <appender name="restCallToZipFile" class="org.apache.log4j.rolling.RollingFileAppender">
+      <!-- The active file to log to -->
+      <param name="append" value="true" />
+
+      <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+       
+         <param name="FileNamePattern" value="${catalina.home}/logs/phoneConsumer.%d.gz" />
+         <param name="DatePattern" value="'.'yyyy-MM-dd" />
+      </rollingPolicy>
+
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d{yyyyMMdd HH:mm:ss} %-5p %X{tokenID} %c %m%n" />
+      </layout>
+   </appender>
+
+  
+   <category name="com.rabbit.service.*">
+      <priority value="error" />
+   </category>
+
+ 
+   <logger name="com.rabbit.PhoneController"  additivity="false">
+      <level value="info"/>
+      <appender-ref ref="restCallToZipFile" />
+   </logger>
+
+   <!-- Root Logger -->
+   <root>
+      <priority value="info" />
+      <appender-ref ref="console" />
+   </root>
+
+</log4j:configuration>
