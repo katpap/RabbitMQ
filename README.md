@@ -15,5 +15,3 @@ A RestController(PhoneController) is used to allow user retrieve the grouped dat
 
 Unit tests are included.
 
-No previous experience in Docker and containers. Apologies.
-
