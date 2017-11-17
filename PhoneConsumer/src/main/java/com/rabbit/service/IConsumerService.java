@@ -12,6 +12,6 @@ public interface IConsumerService {
 	@RabbitListener(queues="app.phone.queue")
 	void receive(PhoneMessage message);
 	
-	public ConcurrentHashMap<String, List<String>> getPhoneMessageReport();
+	ConcurrentHashMap<String, List<String>> getPhoneMessageReport();
 	
 }
