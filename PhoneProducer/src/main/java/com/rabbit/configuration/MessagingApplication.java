@@ -18,7 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableRabbit
 @EnableScheduling
-@ComponentScan(basePackages="com.rabbit.service")
+@ComponentScan(basePackages={"com.rabbit.service", "com.rabbit.controller"})
 public class MessagingApplication{
 
 	public static final String EXCHANGE_NAME = "app.phone.exchange";
