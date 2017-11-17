@@ -33,7 +33,7 @@ private final AtomicInteger msgCounter = new AtomicInteger();
 	}
 
 	public void groupMessage(PhoneMessage message){
-		System.out.println("Total messages received: " + msgCounter);
+		log.info("Total messages received: " + msgCounter);
 		countryPhonesMap.computeIfAbsent(PhoneCountryCatalog.getCountryByCallingCode(message.getTelephoneNumber()), k -> new ArrayList<>()).add(message.getTelephoneNumber());
 				
 	}
