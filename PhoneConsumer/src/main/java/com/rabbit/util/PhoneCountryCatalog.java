@@ -7,6 +7,7 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 public class PhoneCountryCatalog {
+	private static final Logger log = LoggerFactory.getLogger(PhoneCountryCatalog.class);
 	
 	static List<String> supportedRegions;
 	static PhoneNumberUtil phoneUtil;
@@ -22,7 +23,7 @@ public class PhoneCountryCatalog {
 			PhoneNumber phoneNumber = phoneUtil.parse(number, "");
 			return phoneUtil.getRegionCodeForCountryCode(phoneNumber.getCountryCode());
 		}catch(Exception e){
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 		
 		return "";
