@@ -14,7 +14,7 @@ import com.rabbit.model.PhoneMessage;
 import com.rabbit.util.PhoneCountryCatalog;
 
 @Service	
-public class ProducerService {
+public class ProducerService implements IProducerService{
 
 private static final Logger log = LoggerFactory.getLogger(ProducerService.class);
     
